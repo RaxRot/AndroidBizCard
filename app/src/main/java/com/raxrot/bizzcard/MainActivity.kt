@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,6 +34,8 @@ import com.raxrot.bizzcard.ui.theme.BizzCardTheme
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,8 +61,6 @@ fun CreateBizCard() {
        .fillMaxHeight()) {
 
        Card(modifier = Modifier
-           .width(200.dp)
-           .height(390.dp)
            .padding(15.dp),
             elevation = CardDefaults.cardElevation(5.dp),
            shape = RoundedCornerShape(corner = CornerSize(15.dp)),
@@ -76,11 +77,36 @@ fun CreateBizCard() {
                CreateImageProfile()
                Divider(color = Color.Black,
                    thickness =1.dp)
-           }
 
+               CreateInfo()
+           }
        }
 
    }
+}
+
+@Composable
+private fun CreateInfo() {
+    Column(
+        modifier = Modifier.padding(5.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Vlad Bulahov", fontSize = 25.sp,
+            modifier = Modifier.padding(top = 15.dp),
+            color = Color.Blue, fontWeight = FontWeight.Bold
+        )
+        Text(
+            text = "Android Developer",
+            fontSize = 18.sp,
+            modifier = Modifier.padding(top = 5.dp)
+        )
+        Text(
+            text = "dasistperfektos@gmail.com",
+            fontSize = 18.sp,
+            modifier = Modifier.padding(top = 5.dp)
+        )
+    }
 }
 
 @Composable
