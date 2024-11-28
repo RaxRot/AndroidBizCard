@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -18,6 +19,8 @@ import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -68,18 +71,33 @@ fun CreateBizCard() {
        ){
 
            Column(modifier = Modifier
-               .height(300.dp)
+               .height(400.dp)
                .fillMaxWidth()
-               .padding(top = 30.dp),
+               .padding(top = 30.dp).background(Color.Cyan),
                verticalArrangement = Arrangement.Top,
                horizontalAlignment = Alignment.CenterHorizontally) {
 
                CreateImageProfile()
+
                Divider(color = Color.Black,
                    thickness =1.dp)
 
                CreateInfo()
+
+               Button(
+                   onClick = { /*TODO*/ },
+                   modifier = Modifier.padding(top = 15.dp),
+                   shape = RoundedCornerShape(corner = CornerSize(15.dp)),
+                   colors = ButtonDefaults.buttonColors(containerColor = Color.Blue) // Цвет фона кнопки
+               ) {
+                   Text(
+                       text = "Show",
+                       fontSize = 25.sp,
+                       modifier = Modifier.padding(3.dp)
+                   )
+               }
            }
+
        }
 
    }
@@ -97,7 +115,7 @@ private fun CreateInfo() {
             color = Color.Blue, fontWeight = FontWeight.Bold
         )
         Text(
-            text = "Android Developer",
+            text = "Future Android Developer",
             fontSize = 18.sp,
             modifier = Modifier.padding(top = 5.dp)
         )
